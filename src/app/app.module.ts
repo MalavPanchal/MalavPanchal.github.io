@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
@@ -52,7 +53,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
     ])
   ],
-  providers: [],
+  providers: [
+    AuthService
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
