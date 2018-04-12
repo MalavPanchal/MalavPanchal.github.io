@@ -1,3 +1,4 @@
+import { ProductService } from './../../product.service';
 import { CategoryService } from './../../category.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,13 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class ProductFormComponent implements OnInit {
 categories$;
 
-  constructor(CategoryService: CategoryService) {
-
-this.categories$ = CategoryService.getCategories();
+  constructor(CategoryService: CategoryService, private productService: ProductService) {
+    this.categories$ = CategoryService.getCategories();
 
    }
 
-  ngOnInit() {
-  }
+   save(product){
+    this.productService.create(product);
+
+
+   }
+
+   ngOnInit() { }
 
 }
