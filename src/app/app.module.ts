@@ -4,6 +4,7 @@ import { AdminAuthGuard } from './admin-auth-guard.service';
 import { AuthService } from './auth.service';
 import { FormsModule } from '@angular/forms';
 import {CustomFormsModule} from 'ng2-validation';
+import {DataTableModule} from 'angular5-data-table';
 
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
@@ -48,6 +49,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     BrowserModule,
     FormsModule,
     CustomFormsModule,
+    DataTableModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
