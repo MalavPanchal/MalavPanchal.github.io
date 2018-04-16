@@ -29,6 +29,7 @@ import { AuthGuard } from './auth-guard.service';
 import { auth } from 'firebase';
 import { UserService } from './user.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent
   ],
   imports: [
     BrowserModule,
