@@ -1,3 +1,5 @@
+import { ShoppingCart } from './../models/shopping-cart';
+import { Observable } from 'rxjs/Observable';
 import { ShoppingCartService } from './../shopping-cart.service';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,8 +13,7 @@ import { AppUser } from '../models/app-user';
 })
 export class BsNavbarComponent implements OnInit {
 appUser: AppUser;
-shoppingCartItemCount:number;
-
+cart$: Observable<ShoppingCart> ;
 
   constructor(private auth: AuthService,private shoppingCartService: ShoppingCartService ) {
    
@@ -21,13 +22,8 @@ shoppingCartItemCount:number;
 
   async ngOnInit(){
    this.auth.appUser$.subscribe(appUser => this.appUser = appUser); 
-   let cart$ = await this.shoppingCartService.getCart();
-   cart$.subscribe(cart =>{
-     this.shoppingCartItemCount = 0;
-     for (let productId in cart.items)
-      this.shoppingCartItemCount += cart.items[productId].quantity;
-     
-   });
+   this.cart$ = await this.shoppingCartService.getCart();
+   
   }
 
   logout(){
